@@ -15,6 +15,29 @@ import {
   UserRoundCheck,
 } from "lucide-react";
 
+function BrandMark({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="1" y="1" width="62" height="62" rx="18" fill="#101322" stroke="#2D344B" strokeWidth="2" />
+      <path
+        d="M14.5 44V20L32 38L49.5 20V44"
+        fill="none"
+        stroke="#F5F7FF"
+        strokeWidth="5.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="49.5" cy="20" r="5.5" fill="#4054FF" />
+      <circle cx="49.5" cy="20" r="2" fill="#DDE1FF" />
+    </svg>
+  );
+}
+
 const proof = [
   { value: "538", label: "agent templates", note: "across 15 departments" },
   { value: "424", label: "tests passing", note: "on HireOS" },
@@ -249,8 +272,11 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Mansi Gambhir, home">
-          <span className="brand-mark">MG</span>
-          <span className="brand-text">Mansi Gambhir</span>
+          <BrandMark className="brand-mark" />
+          <span className="brand-wordmark">
+            <span className="brand-text">Mansi Gambhir</span>
+            <span className="brand-role">AI systems engineer</span>
+          </span>
         </a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
@@ -599,7 +625,10 @@ export default function Home() {
       </section>
 
       <footer>
-        <a href="#top">Mansi Gambhir</a>
+        <a href="#top" className="footer-brand" aria-label="Mansi Gambhir, back to top">
+          <BrandMark className="footer-mark" />
+          <span>Mansi Gambhir</span>
+        </a>
         <span>AI agents · backend systems · India</span>
         <a href="#top">Back to top <ArrowRight size={14} aria-hidden="true" /></a>
       </footer>

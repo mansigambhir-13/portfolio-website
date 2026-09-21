@@ -39,10 +39,30 @@ function BrandMark({ className = "" }: { className?: string }) {
 }
 
 const proof = [
-  { value: "538", label: "agent templates", note: "across 15 departments" },
-  { value: "424", label: "tests passing", note: "on HireOS" },
-  { value: "16", label: "agent states", note: "in HireXtra" },
-  { value: "10k", label: "calls / day", note: "Jharkhand voice AI cost model" },
+  {
+    kicker: "Production record",
+    value: "7",
+    label: "production-grade builds",
+    note: "Architected, shipped and handed over",
+  },
+  {
+    kicker: "Client delivery",
+    value: "4+",
+    label: "organizations served",
+    note: "Government · education · hiring · enterprise AI",
+  },
+  {
+    kicker: "Published research",
+    value: "3",
+    label: "peer-reviewed papers",
+    note: "2 journal articles · 1 IEEE conference paper",
+  },
+  {
+    kicker: "Measured outcome",
+    value: "92.7%",
+    label: "research model accuracy",
+    note: "Breast-cancer thermography · VGG16 + XAI",
+  },
 ];
 
 const projects = [
@@ -310,10 +330,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="proof-grid" aria-label="Selected outcomes">
-        {proof.map((item, index) => (
+      <section className="proof-grid" aria-label="Evidence-backed track record">
+        {proof.map((item) => (
           <article className="proof-card" key={item.label}>
-            <span className="proof-index">0{index + 1}</span>
+            <span className="proof-kicker">{item.kicker}</span>
             <strong>{item.value}</strong>
             <span>{item.label}</span>
             <small>{item.note}</small>

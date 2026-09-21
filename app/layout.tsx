@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Mansi Gambhir — AI Agent & Backend Engineer",
   description:
-    "Portfolio of Mansi Gambhir — production AI agents, MCP servers and backend systems built with tests, approval gates and audit trails.",
+    "Portfolio of Mansi Gambhir — AWS Certified engineer building production AI agents, Amazon Bedrock systems, MCP servers and reliable backends.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

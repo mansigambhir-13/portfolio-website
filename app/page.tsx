@@ -2,8 +2,10 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Award,
   CheckCircle2,
   CircleDot,
+  Cloud,
   GitBranch,
   Mail,
   Network,
@@ -94,7 +96,7 @@ const experience = [
     role: "AI Engineer",
     company: "Cloud202",
     description:
-      "Worked on Qubitz.ai and WAFR—enterprise agentic AI and automated AWS Well-Architected reviews on Bedrock.",
+      "Built on Qubitz.ai, an enterprise agentic-AI platform powered by Amazon Bedrock, and contributed to WAFR—automating structured AWS Well-Architected reviews across the framework’s six pillars for consulting clients.",
   },
   {
     period: "Aug 2025 — now",
@@ -116,7 +118,8 @@ const stack = [
   ["Agents", "pi SDK · Strands Agents · MCP · RAG · evaluation"],
   ["Backend", "Python · FastAPI · Node.js · TypeScript · NestJS · Hono"],
   ["Data", "PostgreSQL · pgvector · Supabase · Redis · MySQL"],
-  ["Cloud & ops", "AWS Bedrock · Azure · Docker · OpenTelemetry · Grafana"],
+  ["AWS & cloud", "Amazon Bedrock · Well-Architected Framework · agent evaluation gates · managed and BYOC delivery · cloud cost modelling"],
+  ["Operations", "Docker · Azure · OpenTelemetry · Grafana Cloud · New Relic · GitHub Actions"],
   ["Security", "OAuth · PKCE · JWT · multi-tenant access · prompt-injection assessment"],
 ];
 
@@ -136,8 +139,35 @@ const smallerBuilds = [
   {
     title: "Qubitz.ai & WAFR",
     description:
-      "Enterprise AI delivery and automated AWS Well-Architected reviews for consulting teams.",
-    tech: "AWS Bedrock · Python",
+      "Enterprise AI delivery on Amazon Bedrock—from use-case validation and typed agent blueprints to evaluation gates, deployment, auditability and automated Well-Architected reviews.",
+    tech: "Amazon Bedrock · AWS Well-Architected Framework · Python",
+  },
+];
+
+const awsCapabilities = [
+  {
+    number: "01",
+    title: "Agentic AI on Amazon Bedrock",
+    description:
+      "Contributed to Qubitz.ai, an enterprise platform that moves generative-AI use cases from validation to production through typed agent blueprints and release evaluation gates.",
+  },
+  {
+    number: "02",
+    title: "AWS Well-Architected reviews",
+    description:
+      "Worked on WAFR, a platform that structures and automates Well-Architected Framework reviews for consulting clients across operational excellence, security, reliability, performance, cost and sustainability.",
+  },
+  {
+    number: "03",
+    title: "Production architecture",
+    description:
+      "Experienced in designing the path from governed agent definition to managed or bring-your-own-cloud deployment, with evaluation, security and auditability built into the release path.",
+  },
+  {
+    number: "04",
+    title: "Cloud economics & operations",
+    description:
+      "Builds with deployment constraints in view: cost modelling, capacity assumptions, observability, controlled rollout and an engineering handoff teams can operate after launch.",
   },
 ];
 
@@ -151,9 +181,10 @@ export default function Home() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
+          <a href="#aws">AWS</a>
           <a href="#experience">Experience</a>
           <a href="#about">About</a>
-          <a href="mailto:mansi.gambhir@jaipuria.ac.in" className="nav-contact">
+          <a href="mailto:mansigambhir32@gmail.com" className="nav-contact">
             Let’s talk <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         </nav>
@@ -162,15 +193,16 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-kicker">
           <span className="availability-dot" aria-hidden="true" />
-          AI agent &amp; backend engineer · India
+          AWS Certified · AI agent &amp; backend engineer · India
         </div>
         <h1>
           I build AI agents that reach <em>production.</em>
         </h1>
         <div className="hero-bottom">
           <p className="hero-copy">
-            Agentic systems, MCP servers and FastAPI backends—from architecture to
-            deploy, observability and handoff. With a human gate where it counts.
+            Agentic systems on Amazon Bedrock, MCP servers and FastAPI
+            backends—from architecture to deployment, observability and handoff.
+            With a human gate where it counts.
           </p>
           <a className="primary-cta" href="#work">
             See selected work <ArrowDown size={17} aria-hidden="true" />
@@ -329,6 +361,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="aws-section" id="aws" aria-labelledby="aws-title">
+        <div className="aws-heading">
+          <div>
+            <span className="eyebrow light">AWS experience</span>
+            <h2 id="aws-title">Cloud architecture for AI that has to ship.</h2>
+          </div>
+          <div className="aws-credential" aria-label="AWS Certified">
+            <Award aria-hidden="true" />
+            <div>
+              <span>Professional credential</span>
+              <strong>AWS Certified</strong>
+            </div>
+          </div>
+        </div>
+        <div className="aws-grid">
+          {awsCapabilities.map((capability) => (
+            <article key={capability.number}>
+              <div>
+                <Cloud aria-hidden="true" />
+                <span>{capability.number}</span>
+              </div>
+              <h3>{capability.title}</h3>
+              <p>{capability.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="stack-section" aria-labelledby="stack-title">
         <div className="stack-heading">
           <Network aria-hidden="true" />
@@ -348,17 +408,31 @@ export default function Home() {
       </section>
 
       <section className="about" id="about">
-        <div className="about-label">
-          <span className="eyebrow">About</span>
-          <span>English · Hindi</span>
-        </div>
+        <figure className="portrait-card">
+          <img
+            src="/mansi-gambhir.jpeg"
+            alt="Mansi Gambhir"
+            width={316}
+            height={302}
+          />
+          <figcaption>
+            <span>Mansi Gambhir</span>
+            <span>AWS Certified</span>
+          </figcaption>
+        </figure>
         <div className="about-copy">
+          <div className="about-label">
+            <span className="eyebrow">About</span>
+            <span>English · Hindi</span>
+          </div>
           <h2>An engineer who ships agents, not demos.</h2>
           <p>
             I work end to end: architecture, backend, deployment, observability and
-            handoff. My background spans production agent systems, computational
-            biology, a B.Tech from Thapar and research at Samsung R&amp;D Institute
-            Bangalore.
+            handoff—with hands-on experience taking enterprise agentic AI from
+            Amazon Bedrock architecture and evaluation through cloud delivery. I am
+            AWS Certified, with a background spanning production agent systems,
+            computational biology, a B.Tech from Thapar and research at Samsung
+            R&amp;D Institute Bangalore.
           </p>
         </div>
       </section>
@@ -366,8 +440,8 @@ export default function Home() {
       <section className="contact" aria-labelledby="contact-title">
         <span className="eyebrow light">Have a hard system to ship?</span>
         <h2 id="contact-title">Let’s make it reliable.</h2>
-        <a href="mailto:mansi.gambhir@jaipuria.ac.in">
-          <span>mansi.gambhir@jaipuria.ac.in</span>
+        <a href="mailto:mansigambhir32@gmail.com">
+          <span>mansigambhir32@gmail.com</span>
           <span className="contact-icon"><Mail size={22} aria-hidden="true" /></span>
         </a>
       </section>

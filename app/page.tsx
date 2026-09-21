@@ -19,7 +19,7 @@ const proof = [
   { value: "538", label: "agent templates", note: "across 15 departments" },
   { value: "424", label: "tests passing", note: "on HireOS" },
   { value: "16", label: "agent states", note: "in HireXtra" },
-  { value: "10k", label: "calls / day", note: "voice AI cost model" },
+  { value: "10k", label: "calls / day", note: "Jharkhand voice AI cost model" },
 ];
 
 const projects = [
@@ -128,9 +128,16 @@ const stack = [
 const smallerBuilds = [
   {
     title: "Hindi voice AI helpline",
+    context: "Jharkhand Government · e-Kalyan",
     description:
-      "Knowledge-grounded scholarship support with barge-in, idempotent ticketing and cost models to 10,000 calls/day.",
-    tech: "FastAPI · WebSockets · OAuth",
+      "Designed and built a production voice agent for the Jharkhand Government’s e-Kalyan scholarship and grievance service. It answers Hindi, English and Hinglish questions only from a verified knowledge base, captures citizen complaints and creates traceable, idempotent Zoho Desk tickets.",
+    highlights: [
+      "Barge-in, deadline fallbacks and unconditional DTMF-0 transfer keep callers in control and prevent dead air.",
+      "Privacy controls refuse full Aadhaar or bank details, while grounded answers remain auditable to their source.",
+      "Capacity and vendor costs were modelled through 10,000 calls per day, with India-hosted speech options evaluated for data residency.",
+    ],
+    tech: "Exotel · LiveKit · FastAPI · Zoho Desk · Supabase",
+    featured: true,
   },
   {
     title: "Student performance agent",
@@ -368,10 +375,16 @@ export default function Home() {
         </div>
         <div className="more-work-grid">
           {smallerBuilds.map((project, index) => (
-            <article key={project.title}>
+            <article className={project.featured ? "featured-build" : undefined} key={project.title}>
               <span>0{index + 5}</span>
+              {project.context && <strong className="build-context">{project.context}</strong>}
               <h3>{project.title}</h3>
               <p>{project.description}</p>
+              {project.highlights && (
+                <ul className="build-highlights">
+                  {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                </ul>
+              )}
               <small>{project.tech}</small>
             </article>
           ))}

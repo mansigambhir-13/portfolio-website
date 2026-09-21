@@ -3,9 +3,11 @@ import {
   ArrowRight,
   ArrowUpRight,
   Award,
+  BookOpen,
   CheckCircle2,
   CircleDot,
   Cloud,
+  Microscope,
   GitBranch,
   Mail,
   Network,
@@ -171,6 +173,70 @@ const awsCapabilities = [
   },
 ];
 
+const researchExperience = [
+  {
+    year: "2026",
+    title: "Explainable deep learning for breast cancer thermography",
+    context:
+      "Co-author · Centre of Excellence in Emerging Materials, Department of CSE, TIET",
+    highlights: [
+      "Fine-tuned a VGG16 model for thermal-imaging breast cancer detection, achieving 92.7% accuracy.",
+      "Applied explainable AI to surface latent thermal biomarkers and contributed methodology, data curation, visualisation and original-draft writing.",
+    ],
+    signal: "92.7% accuracy · VGG16 + XAI",
+  },
+  {
+    year: "2025",
+    title: "ML-driven drug discovery for leishmaniasis",
+    context:
+      "Co-author · TIET, IISER Pune, SRM IST and BITS Pilani Goa collaboration",
+    highlights: [
+      "Modelled anti-leishmanial activity across 65,057 PubChem compounds using Avalon, MACCS and pharmacophore fingerprints from SMILES.",
+      "Benchmarked Random Forest, MLP, Gradient Boosting and Decision Tree models; the ensemble reached 83.65% accuracy and 0.837 AUC.",
+    ],
+    signal: "65,057 compounds · 0.837 AUC",
+  },
+  {
+    year: "2025",
+    title: "Machine learning for obesity diagnostics",
+    context: "Co-author · IEEE InC4, Bangalore",
+    highlights: [
+      "Contributed to a machine-learning study focused on improving obesity detection and diagnostic accuracy.",
+      "The work was peer reviewed and presented at the 2025 IEEE International Conference on Contemporary Computing and Communications.",
+    ],
+    signal: "Peer reviewed · IEEE InC4",
+  },
+];
+
+const publications = [
+  {
+    type: "Journal article",
+    year: "2026",
+    title:
+      "Thermal Signatures in Breast Cancer: Deciphering Latent Biomarkers through Deep Learning and Explainable AI",
+    venue: "Journal of Thermal Biology · Elsevier · Vol. 137, 104426",
+    doi: "10.1016/j.jtherbio.2026.104426",
+  },
+  {
+    type: "Journal article",
+    year: "2025",
+    title:
+      "Ensemble Techniques for Predictive Modeling of Leishmanial Activity via Molecular Fingerprints",
+    venue:
+      "BMC Medical Informatics and Decision Making · Springer Nature · Vol. 25, 378",
+    doi: "10.1186/s12911-025-03041-4",
+  },
+  {
+    type: "Conference paper",
+    year: "2025",
+    title:
+      "Enhancing Obesity Detection Diagnostics: The Synergy of Machine Learning and AI",
+    venue:
+      "IEEE International Conference on Contemporary Computing and Communications (InC4) · Bangalore · pp. 1–8",
+    doi: "10.1109/InC465408.2025.11256375",
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -184,6 +250,7 @@ export default function Home() {
           <a href="#aws">AWS</a>
           <a href="#experience">Experience</a>
           <a href="#about">About</a>
+          <a href="#research">Research</a>
           <a href="mailto:mansigambhir32@gmail.com" className="nav-contact">
             Let’s talk <ArrowUpRight size={15} aria-hidden="true" />
           </a>
@@ -434,6 +501,78 @@ export default function Home() {
             computational biology, a B.Tech from Thapar and research at Samsung
             R&amp;D Institute Bangalore.
           </p>
+        </div>
+      </section>
+
+      <section className="research-section" id="research" aria-labelledby="research-title">
+        <div className="research-heading">
+          <div>
+            <span className="eyebrow light">Research &amp; publications</span>
+            <h2 id="research-title">Research that turns models into evidence.</h2>
+          </div>
+          <div className="research-count" aria-label="Three peer-reviewed publications">
+            <strong>3</strong>
+            <span>peer-reviewed publications</span>
+            <small>2 journal articles · 1 IEEE conference paper</small>
+          </div>
+        </div>
+
+        <div className="research-interests">
+          <Microscope aria-hidden="true" />
+          <span>Research focus</span>
+          <p>
+            Medical diagnostics, explainable AI for clinical imaging, thermal
+            biomarker discovery, cheminformatics, ML-driven drug discovery and
+            multi-agent LLM systems for research automation.
+          </p>
+        </div>
+
+        <div className="research-grid" aria-label="Research experience">
+          {researchExperience.map((research, index) => (
+            <article key={research.title}>
+              <div className="research-card-top">
+                <span>0{index + 1}</span>
+                <span>{research.year}</span>
+              </div>
+              <h3>{research.title}</h3>
+              <p className="research-context">{research.context}</p>
+              <ul>
+                {research.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+              <strong>{research.signal}</strong>
+            </article>
+          ))}
+        </div>
+
+        <div className="publications-block">
+          <div className="publications-title">
+            <BookOpen aria-hidden="true" />
+            <h3>Published papers</h3>
+          </div>
+          <div className="publication-list">
+            {publications.map((publication, index) => (
+              <article key={publication.doi}>
+                <span className="publication-number">0{index + 1}</span>
+                <div>
+                  <span className="publication-type">
+                    {publication.type} · {publication.year}
+                  </span>
+                  <h4>{publication.title}</h4>
+                  <p>{publication.venue}</p>
+                </div>
+                <a
+                  href={`https://doi.org/${publication.doi}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open DOI for ${publication.title}`}
+                >
+                  DOI <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -3,6 +3,7 @@ services:
     name: portfolio-website
     runtime: node
     plan: free
+    repo: https://github.com/mansigambhir-13/portfolio-website
     branch: main
     buildCommand: npm ci && npx next build
     startCommand: npx next start -p $PORT
